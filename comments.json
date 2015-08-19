@@ -6,5 +6,13 @@
     {
         "author": "Paul O’Shannessy",
         "text": "React is *great*!"
+    },
+    {
+        "author": "Ethan Hawke",
+        "text": "SpitBalls of Fire!"
+    },
+    {
+        "author": "Johnny Depp",
+        "text": "Pirates of the Carribean"
     }
 ]
