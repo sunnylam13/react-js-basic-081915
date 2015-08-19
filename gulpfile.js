@@ -86,11 +86,11 @@ gulp.task('sass', function () {
 	        .pipe(gulp.dest('js/'));
 	});
 
-	// gulp.task('reactjs', function () {
- //    return gulp.src('js/*.jsx')
-	//         .pipe(react())
-	//         .pipe(gulp.dest('js/'));
-	// });
+	gulp.task('reactjs2', function () {
+    return gulp.src('js/*.jsx')
+	        .pipe(react())
+	        .pipe(gulp.dest('js/'));
+	});
 
 ///////////////////////////////////////////////
 ///// 		END REACT JS COMPILE
@@ -102,7 +102,7 @@ gulp.task('sass', function () {
 // 		BROWSER SYNC
 ////////////////////////////////////////////
 
-gulp.task('server', ['sass','jade','reactjs'], function() {
+gulp.task('server', ['sass','jade','reactjs','reactjs2'], function() {
 
     browserSync.init({
         server: "./",
