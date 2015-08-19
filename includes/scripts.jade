@@ -1,24 +1,30 @@
 // SCRIPTS
 
+script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+//- script(type='text/javascript', src='./js/flat-ui.min.js')
+
 //- ===================================
 //- 		REACT JS
 //- ===================================
 //- appears that React JS is loaded first before jQuery
 
-script(type='text/javascript', src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js")
-script(type='text/javascript', src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js")
 //- END REACT JS
-
-script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.4.min.js')
-//- script(type='text/javascript', src='./js/flat-ui.min.js')
 
 //- ===================================
 //- 		MARKED
 //- ===================================
 
-script(type='text/javascript', src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js")
+script(src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js")
 
 //- END MARKED
 
 //- where your custom scripts file is always last
 script(type='text/javascript', src='./js/scripts.js')
+
+//- you have to set your script file to type="text/jsx" for things to work... https://stackoverflow.com/questions/28100644/reactjs-uncaught-syntaxerror-unexpected-token
+//- NOTE:  You need the JSXTransformer.js file above to translate the new React JS syntax into DOM code properly
+script(type="text/jsx", src='./js/react.script.081915.1.js')

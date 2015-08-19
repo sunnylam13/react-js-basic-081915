@@ -1,10 +1,3 @@
-/** @jsx React.DOM */
-
-/* 
-* WARNING:  error = react js unexpected token <
-	* https://stackoverflow.com/questions/20905227/reactjs-unexpected-token-error
-* 
-*/
 
 ////////////////////////////////////////////
 // 		VARIABLES
@@ -31,46 +24,7 @@
 
 	// NOTE:  in terms of organization, Ryan prefers to put all other functions and variables above the object.init() method however in reality it doesn't matter
 
-	// ----------------------------------------
-	// COMMENT BOX PRACTICE 1  ------------------
-	// ----------------------------------------
-		// tutorial1.js
-		var CommentBox = React.createClass({
-		  render: function() {
-		    return (
-		    	<div className="commentBox">
-		    	  Hello, world! I am a CommentBox.
-		    	</div>
-		    );
-		  }
-		});
-		React.render(
-		  <CommentBox />,
-		  document.getElementById('content')
-		);
-	// ----------------------------------------
-	// END COMMENT BOX PRACTICE 1  ------------------
-	// ----------------------------------------
-
-	// ----------------------------------------
-	// COMMENT BOX COMPONENT  ------------------
-	// ----------------------------------------
-		// var CommentA1 = React.createClass({
-		// 	render: function () {
-		// 		var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-		// 		return (
-		// 			<div className="comment">
-		// 				<h2 className="commentAuthor">
-		// 					{this.props.author}
-		// 				</h2>
-		// 				<span dangerouslySetInnerHTML= {{ __html: rawMarkup }} />
-		// 			</div>
-		// 		);
-		// 	}
-		// });
-	// ----------------------------------------
-	// END COMMENT BOX COMPONENT  ------------------
-	// ----------------------------------------
+	
 
 	
 
