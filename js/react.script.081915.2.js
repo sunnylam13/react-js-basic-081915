@@ -91,9 +91,6 @@
 	    	  React.createElement("h2", {className: "comment"}, 
 	    	  	this.props.author
 	    	  ), 
-	    	  "// removed" + ' ' +
-	    	  "// ", marked(this.props.children.toString()), 
-	    	  "// replaced", 
 	    	  React.createElement("span", {dangerouslySetInnerHTML:  { __html: rawMarkup} })
 	    	)
 	    );

@@ -91,9 +91,6 @@
 	    	  <h2 className="comment">
 	    	  	{this.props.author}
 	    	  </h2>
-	    	  // removed
-	    	  // {marked(this.props.children.toString())}
-	    	  // replaced
 	    	  <span dangerouslySetInnerHTML={ { __html: rawMarkup } } />
 	    	</div>
 	    );
