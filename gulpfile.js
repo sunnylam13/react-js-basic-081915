@@ -77,26 +77,16 @@ gulp.task('sass', function () {
 			        .pipe(react())
 			        .pipe(gulp.dest('dist'));
 			});
+	*
+	* NOTE:  gulp-react transforms all .js and .jsx to the compiled versions... not sure if that's good or bad
 	* 
 	*/
-
-	// gulp.task('reactjs', function () {
- //    return gulp.src('js/react.script.081915.1.js')
-	//         .pipe(react())
-	//         .pipe(gulp.dest('js/'));
-	// });
 
 	gulp.task('reactjs2', function () {
     return gulp.src('js/*.jsx')
 	        .pipe(react())
 	        .pipe(gulp.dest('js/'));
 	});
-	
-	// gulp.task('reactjsT1', function () {
-	//     return gulp.src('template.jsx')
-	//         .pipe(react())
-	//         .pipe(gulp.dest('dist'));
-	// });
 
 ///////////////////////////////////////////////
 ///// 		END REACT JS COMPILE
