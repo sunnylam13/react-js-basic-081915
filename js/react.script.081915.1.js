@@ -14,34 +14,6 @@
 	* Comment is a child of CommentList
 */
 
-// ----------------------------------------
-// COMMENT BOX  ------------------
-// ----------------------------------------
-	
-	/* 
-	* to make use of the CommentList and CommentForm, insert them into the html framework in CommentBox
-	* 
-	*/
-
-	var CommentBox = React.createClass({
-	  render: function() {
-	    return (
-	    	<div className="commentBox">
-	    	  Hello, world! I am a CommentBox.
-	    	</div>
-	    );
-	  }
-	});
-
-	// first argument is the component to be inserted, the 2nd argument is the target location or insertion point
-	React.render(
-	  <CommentBox />,
-	  document.getElementById('content')
-	);
-// ----------------------------------------
-// END COMMENT BOX  ------------------
-// ----------------------------------------
-
 
 // ----------------------------------------
 // COMMENT LIST  ------------------
@@ -64,16 +36,54 @@
 // ----------------------------------------
 // COMMENT FORM  ------------------
 // ----------------------------------------
+
 	var CommentForm = React.createClass({
-		return (
-			<div className="commentForm">
-				Hello world!  I am a CommentForm!
-			</div>
-		);
+	  render: function() {
+	    return (
+	    	<div className="commentForm">
+	    		Hello world!  I am a CommentForm!
+	    	</div>
+	    );
+	  }
 	});
 // ----------------------------------------
 // END COMMENT FORM  ------------------
 // ----------------------------------------
+
+
+// ----------------------------------------
+// COMMENT BOX  ------------------
+// ----------------------------------------
+	
+	/* 
+	* to make use of the CommentList and CommentForm, insert them into the html framework in CommentBox
+	* WARNING:  CommentList and CommentForm must be defined, created and loaded first and above this component or you'll throw an undefined error
+	* 
+	*/
+
+	var CommentBox = React.createClass({
+	  render: function() {
+	    return (
+	    	<div className="commentBox">
+	    		<h1>Comments</h1>
+	    	  <CommentList />
+	    	  <CommentForm />
+	    	</div>
+	    );
+	  }
+	});
+
+	// first argument is the component to be inserted, the 2nd argument is the target location or insertion point
+	React.render(
+	  <CommentBox />,
+	  document.getElementById('content')
+	);
+// ----------------------------------------
+// END COMMENT BOX  ------------------
+// ----------------------------------------
+
+
+
 
 // ----------------------------------------
 // LIKE OR NOT  ------------------
