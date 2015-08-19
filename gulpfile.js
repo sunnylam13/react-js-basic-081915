@@ -80,17 +80,23 @@ gulp.task('sass', function () {
 	* 
 	*/
 
-	gulp.task('reactjs', function () {
-    return gulp.src('js/react.script.081915.1.js')
-	        .pipe(react())
-	        .pipe(gulp.dest('js/'));
-	});
+	// gulp.task('reactjs', function () {
+ //    return gulp.src('js/react.script.081915.1.js')
+	//         .pipe(react())
+	//         .pipe(gulp.dest('js/'));
+	// });
 
 	gulp.task('reactjs2', function () {
     return gulp.src('js/*.jsx')
 	        .pipe(react())
 	        .pipe(gulp.dest('js/'));
 	});
+	
+	// gulp.task('reactjsT1', function () {
+	//     return gulp.src('template.jsx')
+	//         .pipe(react())
+	//         .pipe(gulp.dest('dist'));
+	// });
 
 ///////////////////////////////////////////////
 ///// 		END REACT JS COMPILE
@@ -102,7 +108,7 @@ gulp.task('sass', function () {
 // 		BROWSER SYNC
 ////////////////////////////////////////////
 
-gulp.task('server', ['sass','jade','reactjs','reactjs2'], function() {
+gulp.task('server', ['sass','jade','reactjs2'], function() {
 
     browserSync.init({
         server: "./",
@@ -113,6 +119,8 @@ gulp.task('server', ['sass','jade','reactjs','reactjs2'], function() {
     // the SCSS partials need to be in their own folder because css/*.scss causes all of them to trigger in the same directory, in the order they currently are which messes up everything
     gulp.watch("css/partials/*.scss", ['sass']);
     gulp.watch('./*.jade',['jade']);
+    gulp.watch('js/*.jsx',['reactjs2']);
+
     // to get jade partials to trigger changes
     gulp.watch('includes/*.jade',['jade']);
     // whenever the .js files change reload
