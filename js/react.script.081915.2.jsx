@@ -20,17 +20,49 @@
 * 
 */
 
+////////////////////////////////////////////
+///// 		VARIABLES
+///////////////////////////////////////////////
+
+	/* 
+	* let's render a blob of JSON data into the comment list. Eventually this will come from the server, but for now, write it in your source
+	* We need to get this data into CommentList in a modular way. Modify CommentBox and the React.render() call to pass this data into the CommentList via props
+	*/
+
+	var data = [
+		{author: "Will Smith", text: "This is one Legendary comment."},
+		{author: "Johnny Depp", text: "This is *another* story of the Carribean."}
+	];
+
+///////////////////////////////////////////////
+///// 		END VARIABLES
+///////////////////////////////////////////////
+
 
 ////////////////////////////////////////////
 ///// 		COMMENT LIST
 ///////////////////////////////////////////////
 	var CommentList = React.createClass({
 	  render: function() {
+	  	/* 
+	  	* where `this.props.data` was defined in CommentBox component as the linkage item symbol for CommentList
+	  	* 
+	  	*/
+
+
+	    var commentNodes = this.props.data.map(function (comment) {
+	    	return (
+	    		<Comment author={comment.author}>
+	    			{comment.text}
+	    		</Comment>
+	    	);
+	    });
+
+	    // the return then spits out the actual HTML we'll use and inserts our var commentNodes
 	    return (
-				<div className="commentList">
-	        <Comment author="Will Smith">This is one bad ass app</Comment>
-	        <Comment author="Jordan Walke">This is one hell of an app!</Comment>
-	      </div>
+	    	<div className="commentList">
+	    		{commentNodes}
+	    	</div>
 	    );
 	  }
 	});
@@ -108,6 +140,9 @@
 	/* 
 	* to make use of the CommentList and CommentForm, insert them into the html framework in CommentBox
 	* WARNING:  CommentList and CommentForm must be defined, created and loaded first and above this component or you'll throw an undefined error
+	*
+	* NOTE:  CommentBox is like the super parent...  you insert data into here and pass it down to the children using `this.props`...
+		* in this case we set up a data= attribute
 	* 
 	*/
 
@@ -116,16 +151,23 @@
 	    return (
 	  		<div className="commentBox">
 	  	    <h1>Comments</h1>
-	  	    <CommentList />
+	  	    <CommentList data={this.props.data} />
 	  	    <CommentForm />
 	  	  </div>
 	    );
 	  }
 	});
 
-	// first argument is the component to be inserted, the 2nd argument is the target location or insertion point
+	/* 
+	* first argument is the component to be inserted, the 2nd argument is the target location or insertion point
+	*
+	* NOTE:  here we pass the actual var `data` object defined before which sets off the chain of information that is passed down to the children components of CommentBox...
+		* specifically CommentList
+	* 
+	*/
+
 	React.render(
-	  <CommentBox />,
+	  <CommentBox data={data} />,
 	  document.getElementById('content')
 	);
 ///////////////////////////////////////////////
