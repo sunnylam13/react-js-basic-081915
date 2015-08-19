@@ -85,12 +85,16 @@
 
 	var Comment = React.createClass({
 	  render: function() {
+	  	var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
 	    return (
 	    	<div className="comment">
 	    	  <h2 className="comment">
 	    	  	{this.props.author}
 	    	  </h2>
-	    	  {marked(this.props.children.toString())}
+	    	  // removed
+	    	  // {marked(this.props.children.toString())}
+	    	  // replaced
+	    	  <span dangerouslySetInnerHTML={ { __html: rawMarkup } } />
 	    	</div>
 	    );
 	  }
