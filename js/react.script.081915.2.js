@@ -80,6 +80,10 @@
 		* But there's a problem! Our rendered comments look like this in the browser: "<p>This is <em>another</em> comment</p>". 
 		* We want those tags to actually render as HTML.
 		* That's React protecting you from an XSS attack. 
+		*
+		* This is a special API that intentionally makes it difficult to insert raw HTML, but for marked we'll take advantage of this backdoor.
+		* 
+		* REMEMBER: by using this feature you're relying on marked to be secure. In this case, we pass `sanitize: true` which tells marked to escape any HTML markup in the source instead of passing it through unchanged.
 	* 
 	*/
 
