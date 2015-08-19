@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 /* 
 * WARNING:  error = react js unexpected token <
 	* https://stackoverflow.com/questions/20905227/reactjs-unexpected-token-error
