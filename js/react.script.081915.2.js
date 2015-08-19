@@ -18,6 +18,7 @@
 * we use gulp.react to convert this into a .js file
 *
 * NOTE:  by using a .jsx file that is converted into a .js file we no longer need our react.script.081915.1.jsx file...
+	* this allows us to write in .jsx syntax without wasting time worrying about compiling...
 * 
 */
 
@@ -29,13 +30,14 @@
 // ----------------------------------------
 	
 	var CommentList = React.createClass({displayName: "CommentList",
-		render: function () {
-			return (
+	  render: function() {
+	    return (
 				React.createElement("div", {className: "commentList"}, 
-	        "Hello, world! I am a CommentList."
+	        React.createElement(Comment, {author: "Will Smith"}, "This is one bad ass app"), 
+	        React.createElement(Comment, {author: "Jordan Walke"}, "This is one hell of an app!")
 	      )
-			);
-		}
+	    );
+	  }
 	});
 // ----------------------------------------
 // END COMMENT LIST  ------------------
@@ -45,7 +47,7 @@
 // ----------------------------------------
 // COMMENT FORM  ------------------
 // ----------------------------------------
-
+	
 	var CommentForm = React.createClass({displayName: "CommentForm",
 	  render: function() {
 	    return (
@@ -77,10 +79,11 @@
 	*
 	* Now that we have defined the Comment component, we will want to pass it the author name and comment text. 
 		* This allows us to reuse the same code for each unique comment. 
-	* 
+	*
+	* WARNING:  don't forget to change var CommentBoxP1 of the Maestro template to var Comment!  Or you'll throw an error on line 126 or the CommentBox component
 	*/
 
-	var CommentBoxP1 = React.createClass({displayName: "CommentBoxP1",
+	var Comment = React.createClass({displayName: "Comment",
 	  render: function() {
 	    return (
 	    	React.createElement("div", {className: "comment"}, 
@@ -127,45 +130,6 @@
 	);
 // ----------------------------------------
 // END COMMENT BOX  ------------------
-// ----------------------------------------
-
-
-
-
-// ----------------------------------------
-// LIKE OR NOT  ------------------
-// ----------------------------------------
-	// var LikeOrNot = React.createClass({
-	//     render: function () {
-	//       return (
-	//         <li>Like</li>
-	//       );
-	//     }
-	// });
-
-	// React.renderComponent(<LikeOrNot />, document.getElementById('content'));
-// ----------------------------------------
-// END LIKE OR NOT  ------------------
-// ----------------------------------------
-
-// ----------------------------------------
-// COMMENT BOX COMPONENT  ------------------
-// ----------------------------------------
-	// var CommentA1 = React.createClass({
-	// 	render: function () {
-	// 		var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
-	// 		return (
-	// 			<div className="comment">
-	// 				<h2 className="commentAuthor">
-	// 					{this.props.author}
-	// 				</h2>
-	// 				<span dangerouslySetInnerHTML= {{ __html: rawMarkup }} />
-	// 			</div>
-	// 		);
-	// 	}
-	// });
-// ----------------------------------------
-// END COMMENT BOX COMPONENT  ------------------
 // ----------------------------------------
 
 jQuery(document).ready(function($) {
