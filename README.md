@@ -4,11 +4,15 @@ Building a simple React JS app...
 
 ## LINKS
 
-[Git Repo](https://github.com/reactjs/react-tutorial/)
+[Live Demo](http://sunnylam13.github.io/react-js-basic-081915)
+
+[Git Repo](https://github.com/sunnylam13/react-js-basic-081915)
 
 ## RESOURCES
 
 [React JS Tutorial](https://facebook.github.io/react/docs/tutorial.html)
+
+[React JS Tutorial GitHub](https://github.com/reactjs/react-tutorial/)
 
 ## Unix Locations
 
