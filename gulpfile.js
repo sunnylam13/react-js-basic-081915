@@ -12,6 +12,7 @@ var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var jade = require('gulp-jade');
 var plumber = require('gulp-plumber');
+var react = require('gulp-react');
 
 ////////////////////////////////////////////
 // 		JADE COMPILE
@@ -64,6 +65,20 @@ gulp.task('sass', function () {
 ////////////////////////////////////////////
 
 
+
+////////////////////////////////////////////
+///// 		REACT JS COMPILE
+///////////////////////////////////////////////
+
+	gulp.task('reactjs', function () {
+    return gulp.src('template.jsx')
+	        .pipe(react())
+	        .pipe(gulp.dest('dist'));
+	});
+
+///////////////////////////////////////////////
+///// 		END REACT JS COMPILE
+///////////////////////////////////////////////
 
 
 
