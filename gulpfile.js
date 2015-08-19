@@ -70,11 +70,27 @@ gulp.task('sass', function () {
 ///// 		REACT JS COMPILE
 ///////////////////////////////////////////////
 
+	/* 
+	* Original
+		* gulp.task('default', function () {
+			    return gulp.src('template.jsx')
+			        .pipe(react())
+			        .pipe(gulp.dest('dist'));
+			});
+	* 
+	*/
+
 	gulp.task('reactjs', function () {
-    return gulp.src('template.jsx')
+    return gulp.src('js/react.script.081915.1.js')
 	        .pipe(react())
-	        .pipe(gulp.dest('dist'));
+	        .pipe(gulp.dest('js/'));
 	});
+
+	// gulp.task('reactjs', function () {
+ //    return gulp.src('js/*.jsx')
+	//         .pipe(react())
+	//         .pipe(gulp.dest('js/'));
+	// });
 
 ///////////////////////////////////////////////
 ///// 		END REACT JS COMPILE
@@ -86,7 +102,7 @@ gulp.task('sass', function () {
 // 		BROWSER SYNC
 ////////////////////////////////////////////
 
-gulp.task('server', ['sass','jade'], function() {
+gulp.task('server', ['sass','jade','reactjs'], function() {
 
     browserSync.init({
         server: "./",
@@ -101,6 +117,8 @@ gulp.task('server', ['sass','jade'], function() {
     gulp.watch('includes/*.jade',['jade']);
     // whenever the .js files change reload
     gulp.watch("js/*.js").on('change', reload);
+    // whenever the .jsx files change reload
+    gulp.watch("js/*.jsx").on('change', reload);
     // whenever the .css file changes reload
     gulp.watch("css/*.css").on('change', reload);
     // whenever the .html file changes reload

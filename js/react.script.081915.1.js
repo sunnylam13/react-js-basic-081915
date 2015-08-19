@@ -19,12 +19,12 @@
 // COMMENT LIST  ------------------
 // ----------------------------------------
 	
-	var CommentList = React.createClass({
+	var CommentList = React.createClass({displayName: "CommentList",
 		render: function () {
 			return (
-				<div className="commentList">
-					Hello, world!  I am a CommentList.
-				</div>
+				React.createElement("div", {className: "commentList"}, 
+					"Hello, world!  I am a CommentList."
+				)
 			);
 		}
 	});
@@ -37,12 +37,12 @@
 // COMMENT FORM  ------------------
 // ----------------------------------------
 
-	var CommentForm = React.createClass({
+	var CommentForm = React.createClass({displayName: "CommentForm",
 	  render: function() {
 	    return (
-	    	<div className="commentForm">
-	    		Hello world!  I am a CommentForm!
-	    	</div>
+	    	React.createElement("div", {className: "commentForm"}, 
+	    		"Hello world!  I am a CommentForm!"
+	    	)
 	    );
 	  }
 	});
@@ -61,21 +61,21 @@
 	* 
 	*/
 
-	var CommentBox = React.createClass({
+	var CommentBox = React.createClass({displayName: "CommentBox",
 	  render: function() {
 	    return (
-	    	<div className="commentBox">
-	    		<h1>Comments</h1>
-	    	  <CommentList />
-	    	  <CommentForm />
-	    	</div>
+	    	React.createElement("div", {className: "commentBox"}, 
+	    		React.createElement("h1", null, "Comments"), 
+	    	  React.createElement(CommentList, null), 
+	    	  React.createElement(CommentForm, null)
+	    	)
 	    );
 	  }
 	});
 
 	// first argument is the component to be inserted, the 2nd argument is the target location or insertion point
 	React.render(
-	  <CommentBox />,
+	  React.createElement(CommentBox, null),
 	  document.getElementById('content')
 	);
 // ----------------------------------------
