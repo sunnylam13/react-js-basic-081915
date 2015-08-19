@@ -23,12 +23,9 @@
 */
 
 
-
-
-// ----------------------------------------
-// COMMENT LIST  ------------------
-// ----------------------------------------
-	
+////////////////////////////////////////////
+///// 		COMMENT LIST
+///////////////////////////////////////////////
 	var CommentList = React.createClass({displayName: "CommentList",
 	  render: function() {
 	    return (
@@ -39,15 +36,13 @@
 	    );
 	  }
 	});
-// ----------------------------------------
-// END COMMENT LIST  ------------------
-// ----------------------------------------
+///////////////////////////////////////////////
+///// 		END COMMENT LIST
+///////////////////////////////////////////////
 
-
-// ----------------------------------------
-// COMMENT FORM  ------------------
-// ----------------------------------------
-	
+////////////////////////////////////////////
+///// 		COMMENT FORM
+///////////////////////////////////////////////
 	var CommentForm = React.createClass({displayName: "CommentForm",
 	  render: function() {
 	    return (
@@ -57,15 +52,13 @@
 	    );
 	  }
 	});
-// ----------------------------------------
-// END COMMENT FORM  ------------------
-// ----------------------------------------
+///////////////////////////////////////////////
+///// 		END COMMENT FORM
+///////////////////////////////////////////////
 
-
-// ----------------------------------------
-// COMMENT  ------------------
-// ----------------------------------------
-	
+////////////////////////////////////////////
+///// 		COMMENT
+///////////////////////////////////////////////
 	/* 
 	* create the Comment component, 
 		* which will depend on data passed in from its parent. 
@@ -81,6 +74,13 @@
 		* This allows us to reuse the same code for each unique comment. 
 	*
 	* WARNING:  don't forget to change var CommentBoxP1 of the Maestro template to var Comment!  Or you'll throw an error on line 126 or the CommentBox component
+	*
+	* All we're doing here is calling the marked library. 
+		* We need to convert this.props.children from React's wrapped text to a raw string that marked will understand so we explicitly call toString().
+		* But there's a problem! Our rendered comments look like this in the browser: "<p>This is <em>another</em> comment</p>". 
+		* We want those tags to actually render as HTML.
+		* That's React protecting you from an XSS attack. 
+	* 
 	*/
 
 	var Comment = React.createClass({displayName: "Comment",
@@ -90,21 +90,18 @@
 	    	  React.createElement("h2", {className: "comment"}, 
 	    	  	this.props.author
 	    	  ), 
-	    	  this.props.children
+	    	  marked(this.props.children.toString())
 	    	)
 	    );
 	  }
 	});
+///////////////////////////////////////////////
+///// 		END COMMENT
+///////////////////////////////////////////////
 
-// ----------------------------------------
-// END COMMENT  ------------------
-// ----------------------------------------
-
-
-// ----------------------------------------
-// COMMENT BOX  ------------------
-// ----------------------------------------
-	
+////////////////////////////////////////////
+///// 		COMMENT BOX
+///////////////////////////////////////////////
 	/* 
 	* to make use of the CommentList and CommentForm, insert them into the html framework in CommentBox
 	* WARNING:  CommentList and CommentForm must be defined, created and loaded first and above this component or you'll throw an undefined error
@@ -128,10 +125,18 @@
 	  React.createElement(CommentBox, null),
 	  document.getElementById('content')
 	);
-// ----------------------------------------
-// END COMMENT BOX  ------------------
-// ----------------------------------------
+///////////////////////////////////////////////
+///// 		END COMMENT BOX
+///////////////////////////////////////////////
 
-jQuery(document).ready(function($) {
-	// alert("React JS script ready!");
-});
+////////////////////////////////////////////
+///// 		EXECUTE
+///////////////////////////////////////////////
+	jQuery(document).ready(function($) {
+		// alert("React JS script ready!");
+	});
+///////////////////////////////////////////////
+///// 		END EXECUTE
+///////////////////////////////////////////////
+
+

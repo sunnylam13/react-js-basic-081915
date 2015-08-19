@@ -108,11 +108,13 @@ gulp.task('server', ['sass','jade','reactjs2'], function() {
     // to get SASS partials to trigger changes
     // the SCSS partials need to be in their own folder because css/*.scss causes all of them to trigger in the same directory, in the order they currently are which messes up everything
     gulp.watch("css/partials/*.scss", ['sass']);
+    
     gulp.watch('./*.jade',['jade']);
     gulp.watch('js/*.jsx',['reactjs2']);
 
     // to get jade partials to trigger changes
     gulp.watch('includes/*.jade',['jade']);
+
     // whenever the .js files change reload
     gulp.watch("js/*.js").on('change', reload);
     // whenever the .jsx files change reload
