@@ -73,6 +73,11 @@
 	*
 	* By surrounding a JavaScript expression in braces inside JSX (as either an attribute or child), you can drop text or React components into the tree. 
 		* We access named attributes passed to the component as keys on this.props and any nested elements as this.props.children.
+		*
+	*
+	* Now that we have defined the Comment component, we will want to pass it the author name and comment text. 
+		* This allows us to reuse the same code for each unique comment. 
+	* 
 	*/
 
 	var CommentBoxP1 = React.createClass({displayName: "CommentBoxP1",
